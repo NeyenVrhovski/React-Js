@@ -1,0 +1,18 @@
+.navbarImg
+{
+    margin: 0 10px 0 0;
+}
+
+.dropdown-menu
+{
+    background-color: #212529 !important;
+    .dropdown-item
+    {
+        color: rgb(255, 255, 255, 0.55);
+        &:hover
+        {
+            background-color: #363a3f;
+            color: white;
+        }
+    }
+}
