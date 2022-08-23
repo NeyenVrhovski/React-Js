@@ -1,0 +1,20 @@
+@import './../../../styles/variables.scss';
+
+.mainCartContainer
+{
+    width: 55px;
+    height: 55px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255, 0.55);
+    padding: 5px;
+    color: white;
+    font-family: $font;
+    img
+    {
+        width: 30px;
+        height: 30px;
+    }
+}
