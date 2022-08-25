@@ -1,4 +1,4 @@
-import ItemCount from '../../atoms/ItemCount';
+import ItemList from '../../molecules/ItemList';
 import './ItemListContainer.scss';
 
 const ItemListContainer = () => {
@@ -9,10 +9,7 @@ const ItemListContainer = () => {
 
     return (
         <div className='mainItemContainer'>
-            <ItemCount stock={5} initial={1} onAdd={onAdd} itemName={"Gorra Nike"}></ItemCount>
-            <ItemCount stock={8} initial={2} onAdd={onAdd} itemName={"Camperon Adidas"}></ItemCount>
-            <ItemCount stock={3} initial={3} onAdd={onAdd} itemName={"Zapatillas Vans"}></ItemCount>
-            <ItemCount stock={9} initial={4} onAdd={onAdd} itemName={"Medias Puma"}></ItemCount>
+            <ItemList/>
         </div>
     )
 }

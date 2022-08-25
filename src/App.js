@@ -5,8 +5,8 @@ import ItemListContainer from './components/molecules/ItemListContainer';
 function App() {
   return (
     <div>
-      <NavBar></NavBar>
-      <ItemListContainer></ItemListContainer>
+      <NavBar/>
+      <ItemListContainer/>
     </div>
   );
 }
