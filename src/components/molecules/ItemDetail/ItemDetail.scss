@@ -1,0 +1,43 @@
+@import './../../../styles/variables.scss';
+
+.mainItemContainer
+{
+    width: 75%;
+    height: auto;
+    margin: 20px auto;
+    border: solid 1px gray;
+    border-radius: 10px;
+    font-family: $font;
+    .imgContainer
+    {
+        width: 65%;
+        height: auto;
+        padding: 0 25px 0 0;
+        img
+        {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .descriptionContainer
+    {
+        width: 35%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        h2
+        {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .itemDescription
+        {
+            color: gray;
+        }
+        .itemPrice
+        {
+            color: rgb(121 121 248);
+        }
+    }
+}

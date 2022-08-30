@@ -1,0 +1,8 @@
+@import './../../../styles/mixins.scss';
+
+.spinnerContainer
+{
+    @include flexCenter;
+    width: 100%;
+    height: 500px;
+}
