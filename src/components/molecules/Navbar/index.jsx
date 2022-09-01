@@ -6,23 +6,19 @@ import Button from 'react-bootstrap/Button';
 import img from '../../../assets/icons/mainLogo.png';
 import './Navbar.scss';
 import CarWidget from '../../atoms/CarWidget';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-      <Navbar.Brand href="#home"><img className='navbarImg' src={img}/>TiendaLibre</Navbar.Brand>
+      <Link className='brandLink' to={"/"}><img className='navbarImg' src={img}/>TiendaLibre</Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Inicio</Nav.Link>
-            <Nav.Link href="#link">Ofertas del Día</Nav.Link>
-            <NavDropdown className="dropdownContainer" title="Categorías" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Moda</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Tecnología</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Gaming</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">Libros</NavDropdown.Item>
-            </NavDropdown>
+          <Nav className="me-auto linksContainer">
+            <Link className='headerLink' to={"/categories/1"}>Remeras</Link>
+            <Link className='headerLink' to={"/categories/2"}>Pantalones</Link>
+            <Link className='headerLink' to={"/categories/3"}>Zapatillas</Link>
           </Nav>
           <Nav>
             <CarWidget></CarWidget>

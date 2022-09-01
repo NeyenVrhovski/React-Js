@@ -1,6 +1,7 @@
 import './Item.scss';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 const Item = ({itemData}) => {
 
@@ -11,7 +12,9 @@ const Item = ({itemData}) => {
                 <Card.Title>{itemData.title}</Card.Title>
                 <Card.Text>{itemData.description}</Card.Text>
                 <Card.Text>${itemData.price}</Card.Text>
-                <Button variant="primary">Ver más</Button>
+                <Button variant="primary">
+                    <Link className="detailsButton" to={`/item/${itemData.id}`}>Ver Más</Link>
+                </Button>
             </Card.Body>
         </Card>
     )

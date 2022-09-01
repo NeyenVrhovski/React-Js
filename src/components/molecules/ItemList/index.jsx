@@ -3,11 +3,13 @@ import Item from '../../atoms/Item';
 import { TailSpin } from 'react-loader-spinner';
 import {dummyData} from './../../../services/dummyData';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const ItemList = () => {
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const {categoryId} = useParams();
 
     const getData = async () => {
         return new Promise((res, rej) => {
@@ -18,16 +20,24 @@ const ItemList = () => {
     };
 
     useEffect(() => {
+        setLoading(true);
         getData()
         .then((response) => {
-            setData(response);
-            setLoading(false);
-            console.log(response);
+            if (!categoryId)
+            {
+                setData(response);
+            }else{
+                setData(response.filter(item => item.categoryId.toString() === categoryId));
+            }
         })
         .catch((error) => {
             console.log(error);
-        });
-    },[])
+        })
+        .finally(() => {
+            console.log(data);
+            setLoading(false);
+        })
+    },[categoryId])
 
     return (
         <>

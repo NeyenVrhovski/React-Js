@@ -1,14 +1,16 @@
 export const dummyData = [
     {
         id: 1,
-        title: 'Gorra Nike',
-        description: 'Gorra Nike hecha de algodon y poliestireno. Color blanco',
+        categoryId: 1,
+        title: 'Remera Nike',
+        description: 'Remera Nike hecha de algodon y poliestireno. Color blanco',
         price: 2500,
         stock:  10,
-        pictureUrl: 'https://imgs.search.brave.com/DvHUE7fx33EbGRFmeezwDFBEKlu1QaqEWY3994gPtGk/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5i/bHhwVk1WcnpTSE9h/MmxkQnpBVnZnSGFI/YSZwaWQ9QXBp'
+        pictureUrl: 'https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwfa7e643b/products/NI_86F210-001/NI_86F210-001-1.JPG'
     },
     {
         id: 2,
+        categoryId: 3,
         title: 'Zapatillas Adidas',
         description: 'Zapatillas Adidas Yeezy 350 negras con detalles rojos',
         price: 30000,
@@ -17,34 +19,38 @@ export const dummyData = [
     },
     {
         id: 3,
-        title: 'Buzo Puma',
-        description: 'Buzo Puma Blanco. 100% algodon',
+        categoryId: 1,
+        title: 'Remera Puma',
+        description: 'Remera Puma blanca. 100% algodon',
         price: 10000,
         stock:  5,
-        pictureUrl: 'https://imgs.search.brave.com/bHBsxfWsC23LvNPaK5rS3zhq7GmDPk5-C0f0CXXVv4I/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5K/TFZ1MjdiMS1ldVlr/aU5HYm1vYlRRSGFI/YSZwaWQ9QXBp'
+        pictureUrl: 'https://d2r9epyceweg5n.cloudfront.net/stores/001/159/713/products/851787_b11-127a00c724b365527f16056267347287-1024-1024.jpg'
     },
     {
         id: 4,
-        title: 'Medias Abercrombie',
-        description: 'Medias blancas Abercrombie de algodon. Con detalles de flores',
+        categoryId: 2,
+        title: 'Pantalon Abercrombie',
+        description: 'Pantalon Abercrombie de algodon. Con detalles de flores',
         price: 1500,
         stock:  15,
-        pictureUrl: 'https://imgs.search.brave.com/fO6xccGdcGkh5_KMLdnG0xUSLG01QRzTIsXiiis1MqI/rs:fit:279:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5f/LTExcjUzWFRlNnBT/Z185eWZJaEJBQUFB/QSZwaWQ9QXBp'
+        pictureUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGxDsHyiBkYy7W0Scd4En-sTDJ8toJQfLECz8qbaDu8pnH3YjBx1bd-W6S2e3UvQKE6v0&usqp=CAU'
     },
     {
         id: 5,
-        title: 'Remera UnderArmour',
-        description: 'Remera deportiva UnderArmour negra. Hecha de poliestireno con tela fresca',
+        categoryId: 3,
+        title: 'Zapatillas UnderArmour',
+        description: 'Zapatillas deportivas UnderArmour negras. Hechas de poliestireno con tela fresca',
         price: 9000,
         stock: 7,
-        pictureUrl: 'https://imgs.search.brave.com/dALET_8mxZFSR3Y4M2mHeYZkiPyO_l4lWWuipihdUtE/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5Q/VG8xZWhYLXlFak5y/V2YweEFuT3dnSGFI/YSZwaWQ9QXBp'
+        pictureUrl: 'https://http2.mlstatic.com/D_NQ_NP_783147-MLA49747261606_042022-W.jpg'
     },
     {
         id: 6,
-        title: 'Bufanda Gucci',
-        description: 'Bufanda Gucci de lino chino.',
+        categoryId: 2,
+        title: 'Pantalon Levis',
+        description: 'Jean Levis azul.',
         price: 100000,
         stock:  2,
-        pictureUrl: 'https://imgs.search.brave.com/OFottP2HA1yP7nfh2kLil70_wkjsLsqiRjd4TsYPQ98/rs:fit:717:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5T/dDhxM2ZzbGIzRnBX/Z2JHZXpyQ1pRSGFF/NSZwaWQ9QXBp'
+        pictureUrl: 'https://levisarg.vtexassets.com/arquivos/ids/422145/272_629e91d59b23c.jpg?v=637921271878370000'
     }
 ]

@@ -23,3 +23,26 @@
         }
     }
 }
+
+.headerLink
+{
+    color: rgb(255, 255, 255, 0.55);
+    text-decoration: none;
+    margin: 0 25px 0 10px;
+    &:hover
+    {
+        color: white;
+    }
+}
+
+.brandLink
+{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0 25px 0 0;
+    &:hover
+    {
+        color: white;
+    }
+}
