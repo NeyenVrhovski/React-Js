@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import './ItemCount.scss';
+import { Link } from 'react-router-dom';
 
 const ItemCount = (props) => {
     const [count, setCount] = useState(props.initial);
+    const [isSelected, setIsSelected] = useState(false);
     const stock = props.stock;
 
     const handleAdd = () => {
@@ -20,7 +22,13 @@ const ItemCount = (props) => {
     };
 
     return (
-        <div className='mainContainer'>
+       <>
+       {isSelected 
+       ?
+       <Link to={'/cart'}>
+            <button className='btn btn-success addButton'>Terminar mi compra</button>
+       </Link>
+       : <div className='mainContainer'>
             <p>{props.itemName}</p>
             <div className='counterContainer'>
                 <button onClick={handleSubstract} className={count <= 1 ? 'btn btn-primary disabled' : 'btn btn-primary'}>-</button>
@@ -29,8 +37,10 @@ const ItemCount = (props) => {
                 </div>
                 <button onClick={handleAdd} className={count < props.stock ? 'btn btn-primary' : 'btn btn-primary disabled'}>+</button>
             </div>
-            <button onClick={(() => props.onAdd(props.itemName, count))} className='btn btn-success addButton'>Agregar al Carrito</button>
+            <button onClick={(() => {props.onAdd(props.item); setIsSelected(true)})} className='btn btn-success addButton'>Agregar al Carrito</button>
         </div>
+       }
+       </>
     )
 }
 

@@ -1,8 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Button from 'react-bootstrap/Button';
 import img from '../../../assets/icons/mainLogo.png';
 import './Navbar.scss';
 import CarWidget from '../../atoms/CarWidget';
@@ -21,11 +19,7 @@ const NavBar = () => {
             <Link className='headerLink' to={"/categories/3"}>Zapatillas</Link>
           </Nav>
           <Nav>
-            <CarWidget></CarWidget>
-            {/* <Nav.Link href="#">
-              <Button variant="secondary">Iniciar Sesión</Button>
-            </Nav.Link>
-            <Nav.Link style={{display: 'flex', alignItems: 'center'}} href="#">Registrarse</Nav.Link> */}
+            <CarWidget/>
           </Nav>
         </Navbar.Collapse>
       </Container>

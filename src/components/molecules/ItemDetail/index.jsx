@@ -1,11 +1,14 @@
 import './ItemDetail.scss';
 import ItemCount from '../../atoms/ItemCount';
+import { useState } from 'react';
 
 
 const ItemDetail = ({itemData}) => {
 
-    const onAdd = (itemName, itemQuantity) => {
-        console.log(`Agregado! Item: ${itemName}, Cantidad: ${itemQuantity}`);
+    const [selectedItems, setSelectedItems] = useState([]);
+
+    const onAdd = (selectedItem) => {
+        setSelectedItems(selectedItem);
     }
 
     return (
@@ -20,7 +23,7 @@ const ItemDetail = ({itemData}) => {
                     <p className='itemPrice'>${itemData.price}</p>
                 </div>
                 <div className='itemCountContainer'>
-                    <ItemCount onAdd={onAdd} initial={1} stock={itemData.stock} itemName={itemData.title}/>
+                    <ItemCount onAdd={onAdd} initial={1} stock={itemData.stock} item={itemData} itemName={itemData.title}/>
                 </div>
             </div>
         </div>
