@@ -5,12 +5,6 @@ import { useState } from 'react';
 
 const ItemDetail = ({itemData}) => {
 
-    const [selectedItems, setSelectedItems] = useState([]);
-
-    const onAdd = (selectedItem) => {
-        setSelectedItems(selectedItem);
-    }
-
     return (
         <div className='mainItemContainer'>
             <div className='imgContainer'>
@@ -23,7 +17,7 @@ const ItemDetail = ({itemData}) => {
                     <p className='itemPrice'>${itemData.price}</p>
                 </div>
                 <div className='itemCountContainer'>
-                    <ItemCount onAdd={onAdd} initial={1} stock={itemData.stock} item={itemData} itemName={itemData.title}/>
+                    <ItemCount initial={1} stock={itemData.stock} item={itemData} itemName={itemData.title}/>
                 </div>
             </div>
         </div>

@@ -3,10 +3,6 @@ import './ItemListContainer.scss';
 
 const ItemListContainer = () => {
 
-    const onAdd = (itemName, itemQuantity) => {
-        console.log(`Agregado! Item: ${itemName}, Cantidad: ${itemQuantity}`);
-    }
-
     return (
         <div className='mainItemContainer'>
             <ItemList/>

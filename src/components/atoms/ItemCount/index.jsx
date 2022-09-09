@@ -1,11 +1,20 @@
 import { useState } from 'react';
 import './ItemCount.scss';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../../molecules/CartContext';
 
 const ItemCount = (props) => {
     const [count, setCount] = useState(props.initial);
     const [isSelected, setIsSelected] = useState(false);
+    const { cart, isInCart, addToCart } = useContext(CartContext);
     const stock = props.stock;
+
+    
+    useEffect(() => {
+        isInCart(props.item.id) ? setIsSelected(true) : setIsSelected(false);
+    },[]);
 
     const handleAdd = () => {
         if (count < stock)
@@ -37,7 +46,7 @@ const ItemCount = (props) => {
                 </div>
                 <button onClick={handleAdd} className={count < props.stock ? 'btn btn-primary' : 'btn btn-primary disabled'}>+</button>
             </div>
-            <button onClick={(() => {props.onAdd(props.item); setIsSelected(true)})} className='btn btn-success addButton'>Agregar al Carrito</button>
+            <button onClick={(() => {addToCart(props.item.id, count); setIsSelected(true)})} className='btn btn-success addButton'>Agregar al Carrito</button>
         </div>
        }
        </>

@@ -1,0 +1,42 @@
+.itemContainer
+    {
+        width: 50%;
+        height: 190px;
+        display: flex;
+        align-items: center;
+        border: solid black;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 0 0 20px 0;
+        img
+        {
+            width: 35%;
+            height: auto;
+        }
+        .descriptionContainer
+        {
+            height: 100%;
+            width: 45%;
+            padding: 5px;
+            p
+            {
+                font-size: 15px;
+                span
+                {
+                    color: #ff1b4b;
+                }
+            }
+        }
+        .eraseContainer
+        {
+            width: 20%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg
+            {
+                cursor: pointer;
+            }
+        }
+    }
