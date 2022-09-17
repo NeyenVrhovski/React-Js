@@ -1,7 +1,6 @@
 import './ItemList.scss';
 import Item from '../../atoms/Item';
 import { TailSpin } from 'react-loader-spinner';
-import {dummyData} from './../../../services/dummyData';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, query, where} from 'firebase/firestore';
