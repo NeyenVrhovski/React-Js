@@ -2,7 +2,8 @@ import './ItemDetailContainer.scss';
 import { useState, useEffect } from 'react';
 import ItemDetail from '../ItemDetail';
 import { TailSpin } from 'react-loader-spinner';
-import { dummyData } from '../../../services/dummyData';
+import { db } from '../../../firebase/config';
+import { doc, getDoc } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
@@ -10,27 +11,25 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true);
     const {itemId} = useParams();
 
-    const getData = async () => {
-        return new Promise((res, rej) => {
-            setTimeout(() => {
-                res(dummyData)
-            }, 2000)
-        })
+    const getItem = async () => {
+        const docRef = doc(db, 'Productos', itemId);
+        
+        try {
+            let rawData = await getDoc(docRef);
+            let rawItem = rawData.data();
+            rawItem["id"] = itemId;
+            setItem(rawItem);
+        } catch (error) {
+            console.log(error);
+        }
+        finally{
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
         setLoading(true);
-        getData()
-        .then((response) => {
-            setItem(response.find(el => el.id.toString() === itemId));
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-        .finally(() => {
-            console.log(item)
-            setLoading(false);
-        })
+        getItem();
     },[itemId])
 
     return (

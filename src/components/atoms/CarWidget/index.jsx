@@ -5,12 +5,12 @@ import './CarWidget.scss'
 
 const CarWidget = () => {
 
-    const {cartLenght} = useContext(CartContext);
+    const { cartQuantity } = useContext(CartContext);
 
     return (
         <div className="mainCartContainer">
             <img src={imgUrl}></img>
-            <span>{cartLenght}</span>
+            <span>{cartQuantity}</span>
         </div>
     )
 }

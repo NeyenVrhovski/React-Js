@@ -1,15 +1,16 @@
-import { Children, createContext, useState } from 'react';
-import { dummyData } from '../../../services/dummyData';
+import { createContext, useState } from 'react';
     
     export const CartContext = createContext([]);
 
     export const CartProvider = ({children}) => {
         const [cart, setCart] = useState([]);
   
-        const addToCart = (selectedId, quantity) => {
-            let selectedItem = dummyData.find((el) => el.id === selectedId);
-            selectedItem["quantity"] = quantity;
-            setCart([...cart, selectedItem]);
+        const addToCart = (selectedItem, quantity) => {
+            if (!cart.some((el) => el.id === selectedItem.id))
+            {
+                selectedItem["quantity"] = quantity;
+                setCart([...cart, selectedItem]);
+            }
         }
 
         const removeFromCart = (selectedId) => {
@@ -27,12 +28,12 @@ import { dummyData } from '../../../services/dummyData';
             setCart([])
         }
 
-        const cartLenght = cart.length
+        const cartQuantity = cart.reduce((prevEl, nextEl) => prevEl + nextEl.quantity, 0);
 
         return(
             <CartContext.Provider value={{
                 cart,
-                cartLenght,
+                cartQuantity,
                 addToCart,
                 removeFromCart,
                 isInCart,

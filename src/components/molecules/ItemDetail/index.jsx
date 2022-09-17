@@ -1,9 +1,36 @@
 import './ItemDetail.scss';
 import ItemCount from '../../atoms/ItemCount';
-import { useState } from 'react';
+import { useState, useEffect, useContext} from 'react';
+import { CartContext } from '../../molecules/CartContext';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const ItemDetail = ({itemData}) => {
+
+    const { cart, isInCart, addToCart } = useContext(CartContext);
+    const [stock, setStock] = useState(itemData.stock);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(isInCart(itemData.id))
+        {
+            let cartItem = cart.find((el) => el.id == itemData.id);
+            setStock(itemData.stock - cartItem.quantity);
+        }
+    },[]);
+    
+
+    const onAdd = (quantity) => {
+        if(isInCart(itemData.id))
+        {
+            cart[cart.findIndex((el) => el.id == itemData.id)].quantity += quantity;
+        }
+        else
+        {
+            addToCart(itemData, quantity);
+        } 
+        navigate('/cart');
+    }
 
     return (
         <div className='mainItemContainer'>
@@ -17,7 +44,14 @@ const ItemDetail = ({itemData}) => {
                     <p className='itemPrice'>${itemData.price}</p>
                 </div>
                 <div className='itemCountContainer'>
-                    <ItemCount initial={1} stock={itemData.stock} item={itemData} itemName={itemData.title}/>
+                    {stock < 1 
+                    ?
+                    <p>Lo sentimos, no contamos con este item en stock</p>
+                    :
+                    <ItemCount initial={1} stock={stock} item={itemData} itemName={itemData.title} onAdd={onAdd}/>}
+                    <Link to={'/cart'}>
+                        <button className='btn btn-success addButton'>Terminar mi compra</button>
+                    </Link>
                 </div>
             </div>
         </div>

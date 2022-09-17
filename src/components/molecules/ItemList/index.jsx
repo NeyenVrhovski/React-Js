@@ -4,6 +4,8 @@ import { TailSpin } from 'react-loader-spinner';
 import {dummyData} from './../../../services/dummyData';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { collection, getDocs, query, where} from 'firebase/firestore';
+import { db } from '../../../firebase/config';
 
 const ItemList = () => {
 
@@ -12,31 +14,30 @@ const ItemList = () => {
     const {categoryId} = useParams();
 
     const getData = async () => {
-        return new Promise((res, rej) => {
-            setTimeout(() => {
-                res(dummyData)
-            }, 2000)
-        })
+
+        const productosRef = collection(db, 'Productos');
+        const q = categoryId ? query(productosRef, where('categoryId', '==', parseInt(categoryId))) : productosRef;
+
+        try {
+            let rawData = await getDocs(q)
+            let productsArray = []
+            rawData.docs.forEach((e, i) => {
+                productsArray.push(e.data());
+                productsArray[i]["id"] = e.id;
+            })
+            console.log(productsArray)
+            setData(productsArray);
+        } catch (error) {
+            console.log(error);
+        }
+        finally{
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
         setLoading(true);
-        getData()
-        .then((response) => {
-            if (!categoryId)
-            {
-                setData(response);
-            }else{
-                setData(response.filter(item => item.categoryId.toString() === categoryId));
-            }
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-        .finally(() => {
-            console.log(data);
-            setLoading(false);
-        })
+        getData();
     },[categoryId])
 
     return (

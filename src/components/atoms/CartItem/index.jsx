@@ -13,7 +13,7 @@ const CartItem = ({item}) => {
             <h2>{item.title}</h2>
         <p><span>Precio:</span> ${item.price}</p>
             <p><span>Cantidad:</span> {item.quantity}</p>
-            <p><span>Descripción:</span> ${item.description}</p>
+            <p><span>Descripción:</span> {item.description}</p>
         </div>
         <div className='eraseContainer'>
             <svg onClick={(() => {removeFromCart(item.id)})} xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" className="bi bi-trash-fill" viewBox="0 0 16 16">
