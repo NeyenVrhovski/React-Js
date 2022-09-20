@@ -5,6 +5,7 @@ import ItemDetailContainer from './components/molecules/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {CartProvider} from './components/molecules/CartContext';
 import CartResume from './components/molecules/CartResume';
+import Checkout from './components/molecules/Checkout';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/categories/:categoryId' element={<ItemListContainer/>}></Route>
           <Route path='/item/:itemId' element={<ItemDetailContainer/>}></Route>
           <Route path='/cart' element={<CartResume/>}></Route>
+          <Route path='/checkout' element={<Checkout/>}></Route>
           <Route path='*' element={<ItemListContainer/>}></Route>
         </Routes>
       </BrowserRouter>

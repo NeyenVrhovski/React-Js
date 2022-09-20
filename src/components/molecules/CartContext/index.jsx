@@ -29,10 +29,13 @@ import { createContext, useState } from 'react';
         }
 
         const cartQuantity = cart.reduce((prevEl, nextEl) => prevEl + nextEl.quantity, 0);
+        
+        const cartTotal = cart.reduce((prevEl, nextEl) => prevEl + nextEl.quantity * nextEl.price, 0)
 
         return(
             <CartContext.Provider value={{
                 cart,
+                cartTotal,
                 cartQuantity,
                 addToCart,
                 removeFromCart,

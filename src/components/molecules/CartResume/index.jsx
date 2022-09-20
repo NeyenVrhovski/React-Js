@@ -23,7 +23,12 @@ const CartResume = () => {
             </Link>
             </>
             :
-            <button onClick={emptyCart} className='btn btn-danger'>Vaciar carrito</button>
+            <div className='buttonsContainer'>
+                <button onClick={emptyCart} className='btn btn-danger'>Vaciar carrito</button>
+                <Link to={'/checkout'}>
+                    <button className='btn btn-success'>Terminar mi compra</button>
+                </Link>
+            </div>
             }
         </div>
     )
