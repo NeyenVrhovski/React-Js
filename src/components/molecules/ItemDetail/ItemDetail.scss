@@ -39,5 +39,24 @@
         {
             color: rgb(121 121 248);
         }
+        .itemCountContainer
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h3
+            {
+                color: rgb(159 164 161);
+                font-size: 20px;
+            }
+            a
+            {
+                width: 100%;
+                button
+                {
+                    width: 100%;
+                }
+            }
+        }
     }
 }

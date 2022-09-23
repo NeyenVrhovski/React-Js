@@ -21,15 +21,8 @@ const ItemDetail = ({itemData}) => {
     
 
     const onAdd = (quantity) => {
-        if(isInCart(itemData.id))
-        {
-            cart[cart.findIndex((el) => el.id == itemData.id)].quantity += quantity;
-        }
-        else
-        {
-            addToCart(itemData, quantity);
-        } 
-        navigate('/cart');
+        addToCart(itemData, quantity);
+        setStock(stock - quantity);
     }
 
     return (
@@ -44,6 +37,10 @@ const ItemDetail = ({itemData}) => {
                     <p className='itemPrice'>${itemData.price}</p>
                 </div>
                 <div className='itemCountContainer'>
+                    {isInCart(itemData.id) 
+                    ?
+                    <h3>Este item ya esta en tu carrito</h3>
+                    : null}
                     {stock < 1 
                     ?
                     <p>Lo sentimos, no contamos con este item en stock</p>

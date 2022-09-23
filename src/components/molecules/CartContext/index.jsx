@@ -6,7 +6,15 @@ import { createContext, useState } from 'react';
         const [cart, setCart] = useState([]);
   
         const addToCart = (selectedItem, quantity) => {
-            if (!cart.some((el) => el.id === selectedItem.id))
+            if(isInCart(selectedItem.id))
+            {
+                let index = cart.findIndex((el) => el.id == selectedItem.id);
+                let newItem = cart[index];
+                newItem.quantity += quantity;
+                cart.splice(index, 1);
+                setCart([...cart, newItem]);
+            }
+            else
             {
                 selectedItem["quantity"] = quantity;
                 setCart([...cart, selectedItem]);

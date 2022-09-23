@@ -32,7 +32,7 @@ const ItemCount = (props) => {
                 </div>
                 <button onClick={handleAdd} className={count < props.stock ? 'btn btn-primary' : 'btn btn-primary disabled'}>+</button>
             </div>
-            <button onClick={(() => {props.onAdd(count)})} className='btn btn-success addButton'>Agregar al Carrito</button>
+            <button onClick={(() => {props.onAdd(count); setCount(1)})} className='btn btn-success addButton'>Agregar al Carrito</button>
         </div>
     )
 }
