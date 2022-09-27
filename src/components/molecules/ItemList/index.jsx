@@ -21,8 +21,7 @@ const ItemList = () => {
             let rawData = await getDocs(q)
             let productsArray = []
             rawData.docs.forEach((e, i) => {
-                productsArray.push(e.data());
-                productsArray[i]["id"] = e.id;
+                productsArray.push({id: e.id, ...e.data()});
             })
             console.log(productsArray)
             setData(productsArray);

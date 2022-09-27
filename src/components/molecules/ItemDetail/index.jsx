@@ -9,12 +9,13 @@ const ItemDetail = ({itemData}) => {
 
     const { cart, isInCart, addToCart } = useContext(CartContext);
     const [stock, setStock] = useState(itemData.stock);
+    const [cartItem, setCartItem] = useState({});
     const navigate = useNavigate();
 
     useEffect(() => {
         if(isInCart(itemData.id))
         {
-            let cartItem = cart.find((el) => el.id == itemData.id);
+            setCartItem(cart.find((el) => el.id == itemData.id));
             setStock(itemData.stock - cartItem.quantity);
         }
     },[]);
@@ -37,18 +38,18 @@ const ItemDetail = ({itemData}) => {
                     <p className='itemPrice'>${itemData.price}</p>
                 </div>
                 <div className='itemCountContainer'>
-                    {isInCart(itemData.id) 
-                    ?
-                    <h3>Este item ya esta en tu carrito</h3>
-                    : null}
                     {stock < 1 
                     ?
                     <p>Lo sentimos, no contamos con este item en stock</p>
                     :
                     <ItemCount initial={1} stock={stock} item={itemData} itemName={itemData.title} onAdd={onAdd}/>}
+                    {isInCart(itemData.id) ? 
                     <Link to={'/cart'}>
                         <button className='btn btn-success addButton'>Terminar mi compra</button>
                     </Link>
+                    :
+                    ''
+                    }
                 </div>
             </div>
         </div>

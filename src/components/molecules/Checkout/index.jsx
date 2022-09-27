@@ -46,7 +46,7 @@ const Checkout = () => {
                 let itemRef = doc(db, 'Productos', item.id);
                 getDoc(itemRef)
                 .then((doc) => {
-                    doc.data().stock < item.quantity ? noStock = true : noStock = false
+                    doc.data().stock < item.quantity ? noStock = true : noStock = noStock;
                 })
             })
 
@@ -111,6 +111,10 @@ const Checkout = () => {
         if(formValues.name.length > 0 && formValues.lastname.length > 0 && formValues.email.includes('@') && formValues.telephone.length > 7 && formValues.address.length > 2)
         {
             setCorrectData(true);
+        }
+        else
+        {
+            setCorrectData(false);
         }
     }
 
