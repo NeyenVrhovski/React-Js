@@ -23,7 +23,6 @@ const ItemList = () => {
             rawData.docs.forEach((e, i) => {
                 productsArray.push({id: e.id, ...e.data()});
             })
-            console.log(productsArray)
             setData(productsArray);
         } catch (error) {
             console.log(error);
